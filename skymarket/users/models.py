@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, AbstractUser
 from django.db import models
-from users.managers import UserManager, UserRoles
+from .managers import UserManager, UserRoles
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import gettext_lazy as _
 
@@ -25,7 +25,8 @@ class User(AbstractBaseUser):
 
     # эта константа содержит список с полями,
     # которые необходимо заполнить при создании пользователя
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone', "role", "avatar"]
+    # REQUIRED_FIELDS = ['first_name', 'last_name', 'phone', "role", "avatar"]
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone', "role"]
 
     @property
     def is_admin(self):

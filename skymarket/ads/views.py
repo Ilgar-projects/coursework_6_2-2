@@ -2,9 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import pagination, viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import permissions
-
 from rest_framework.decorators import action
-
 from .models import Ad, Comment
 from .filters import AdFilter
 from .serializers import AdSerializer, AdDetailSerializer, CommentSerializer

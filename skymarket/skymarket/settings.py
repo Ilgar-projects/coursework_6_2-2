@@ -92,7 +92,9 @@ REST_FRAMEWORK = {
 DJOSER = {
     'SERIALIZERS': {
         'user_create': 'users.serializers.UserRegistrationSerializer',
-        'user_uodate': 'users.serializers.UserUpdateSerializer',
+        'user_update': 'users.serializers.UserUpdateSerializer',
+        'current_user': 'users.serializers.CurrentUserSerializer'
+
     },
     'LOGIN_FIELD': 'email'
 }
@@ -101,17 +103,26 @@ DJOSER = {
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # TODO здесь необходимо настроить подключение к БД
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'skymarket',
+#        'USER': 'skymarket',
+#        'PASSWORD': 'skymarket',
+#        'HOST': 'localhost',
+#        'PORT': '5432'
+#    }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'skymarket',
-        'USER': 'skymarket',
-        'PASSWORD': 'skymarket',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'PORT': os.environ.get('DB_PORT'),
+        'HOST': os.environ.get('DB_HOST')
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 

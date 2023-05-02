@@ -3,7 +3,7 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
-# TODO здесь необходимо подключит нужные нам urls к проекту
+# TODO здесь необходимо подключить нужные нам urls к проекту
 
 urlpatterns = [
     path("api/admin/", admin.site.urls),
